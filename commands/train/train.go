@@ -33,13 +33,13 @@ func NewCmdTrain(f *pkg.Factory) *cobra.Command {
 }
 
 func trainRun(opts *Options) error {
-	// client, err := opts.HTTPClient()
-	// if err != nil {
-	// 	return err
-	// }
-	// err := trainModels(client)
-	// if err != nil {
-	// 	return err
-
+	client, err := opts.HTTPClient()
+	if err != nil {
+		return err
+	}
+	err = trainModels(client)
+	if err != nil {
+		return err
+	}
 	return nil
 }

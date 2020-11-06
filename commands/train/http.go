@@ -1,23 +1,8 @@
 package train
 
-import (
-	"net/http"
-)
+import "github.com/agusnavce/posifi-cli/pkg"
 
-func trainModels(client *http.Client, hostname string) error {
-	// path := "train"
-	// body := map[string]string{
-	// 	"test": "test",
-	// }
-	// requestByte, err := json.Marshal(body)
-	// if err != nil {
-	// 	return err
-	// }
-	// var result string
-	// requestBody := bytes.NewReader(requestByte)
-	// apliClient := api.NewClientFromHTTP(client)
-	// err = apliClient.REST(hostname, "POST", path, requestBody, &result)
+func trainModels(client pkg.Client) error {
 
-	// return err
 	return nil
 }
