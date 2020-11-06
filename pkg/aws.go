@@ -32,8 +32,13 @@ func newAWSClient(cfg *AWSConfig) Datasource {
 }
 
 // NewDynamoDB - creates a new instance of DynamoDB
-func NewDynamoDB(cfg *AWSConfig) (*dynamodb.DynamoDB, error) {
-	c := newAWSClient(cfg)
+func NewDynamoDB(cfg Config) (*dynamodb.DynamoDB, error) {
+	awscfg := &AWSConfig{
+		Region:    cfg.Get(),
+		AccessKey: cfg.Get(),
+		SecretKey: cfg.Get(),
+	}
+	c := newAWSClient(awscfg)
 	sess, err := c.GetSession()
 	if err != nil {
 		return nil, err

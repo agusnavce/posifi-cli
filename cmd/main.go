@@ -36,7 +36,8 @@ func main() {
 	stderr := cmdFactory.IOStreams.ErrOut
 	cs := cmdFactory.IOStreams.ColorScheme()
 
-	hasConfig := false
+	cfg, hasConfig, err := cmdFactory.Config()
+	fmt.Println(err, cfg)
 	if !hasConfig {
 		fmt.Fprintln(stderr, cs.Bold("Welcome to Posifi CLI!"))
 		fmt.Fprintln(stderr)
