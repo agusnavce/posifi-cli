@@ -27,7 +27,7 @@ func NewHTTPClient(cfg Config) Client {
 	d := time.Duration(5000)
 	httpclient := &http.Client{Timeout: d * time.Millisecond}
 	return &client{
-		BaseURL: cfg.Get(),
+		BaseURL: cfg.GetHostname(),
 		Client:  httpclient,
 	}
 }

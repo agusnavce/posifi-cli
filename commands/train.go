@@ -1,4 +1,4 @@
-package train
+package commands
 
 import (
 	"fmt"
@@ -37,9 +37,6 @@ func trainRun(opts *Options) error {
 	if err != nil {
 		return err
 	}
-	err = trainModels(client)
-	if err != nil {
-		return err
-	}
+	fmt.Println(client)
 	return nil
 }

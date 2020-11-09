@@ -1,15 +1,7 @@
-package root
+package commands
 
 import (
 	"github.com/MakeNowJust/heredoc"
-	"github.com/agusnavce/posifi-cli/commands/accuracy"
-	"github.com/agusnavce/posifi-cli/commands/delete"
-	"github.com/agusnavce/posifi-cli/commands/filter"
-	"github.com/agusnavce/posifi-cli/commands/help"
-	"github.com/agusnavce/posifi-cli/commands/insert"
-	"github.com/agusnavce/posifi-cli/commands/list"
-	"github.com/agusnavce/posifi-cli/commands/scan"
-	"github.com/agusnavce/posifi-cli/commands/train"
 	"github.com/agusnavce/posifi-cli/pkg"
 	"github.com/spf13/cobra"
 )
@@ -37,7 +29,7 @@ func NewCmdRoot(f *pkg.Factory) *cobra.Command {
 	cmd.SetErr(f.IOStreams.ErrOut)
 
 	cmd.PersistentFlags().Bool("help", false, "Show help for command")
-	cmd.SetHelpFunc(help.RootHelpFunc)
+	cmd.SetHelpFunc(rootHelpFunc)
 	// cmd.SetUsageFunc(rootUsageFunc)
 	// cmd.SetFlagErrorFunc(rootFlagErrrorFunc)
 
@@ -46,13 +38,13 @@ func NewCmdRoot(f *pkg.Factory) *cobra.Command {
 	// cmd.Version = formattedVersion
 	// cmd.Flags().Bool("version", false, "Show gh version")
 
-	cmd.AddCommand(accuracy.NewCmdAccuracy(f))
-	cmd.AddCommand(filter.NewCmdFilter(f))
-	cmd.AddCommand(list.NewCmdList(f))
-	cmd.AddCommand(scan.NewCmdScan(f))
-	cmd.AddCommand(train.NewCmdTrain(f))
-	cmd.AddCommand(insert.NewCmdInsert(f))
-	cmd.AddCommand(delete.NewCmdDelete(f))
+	cmd.AddCommand(NewCmdAccuracy(f))
+	cmd.AddCommand(NewCmdFilter(f))
+	cmd.AddCommand(NewCmdList(f))
+	cmd.AddCommand(NewCmdScan(f))
+	cmd.AddCommand(NewCmdTrain(f))
+	cmd.AddCommand(NewCmdInsert(f))
+	cmd.AddCommand(NewCmdDelete(f))
 
 	// Help topics
 	// cmd.AddCommand(NewHelpTopic("environment"))

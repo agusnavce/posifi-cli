@@ -5,7 +5,7 @@ import (
 	"os"
 
 	surveyCore "github.com/AlecAivazis/survey/v2/core"
-	"github.com/agusnavce/posifi-cli/commands/root"
+	"github.com/agusnavce/posifi-cli/commands"
 	"github.com/agusnavce/posifi-cli/pkg"
 	"github.com/mgutz/ansi"
 )
@@ -32,7 +32,7 @@ func main() {
 		}
 	}
 
-	rootCmd := root.NewCmdRoot(cmdFactory)
+	rootCmd := commands.NewCmdRoot(cmdFactory)
 	stderr := cmdFactory.IOStreams.ErrOut
 	cs := cmdFactory.IOStreams.ColorScheme()
 
@@ -46,12 +46,5 @@ func main() {
 		os.Exit(4)
 	}
 
-	// c := credentials.NewSharedCredentials("", "default")
-	// creds, err := c.Get()
-	// if err != nil {
-	// 	fmt.Fprintf(stderr, "Failed to read  AWS configuration:  %s\n", err)
-	// 	os.Exit(2)
-	// }
-	//fmt.Println(creds)
 	rootCmd.Execute()
 }

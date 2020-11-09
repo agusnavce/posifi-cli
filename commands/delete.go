@@ -1,4 +1,4 @@
-package list
+package commands
 
 import (
 	"fmt"
@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// NewCmdList creates the version command
-func NewCmdList(f *pkg.Factory) *cobra.Command {
+// NewCmdDelete creates the version command
+func NewCmdDelete(f *pkg.Factory) *cobra.Command {
 	cmd := &cobra.Command{
-		Use: "list",
+		Use: "delete",
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Println("test")
 		},

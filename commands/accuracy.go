@@ -1,4 +1,4 @@
-package accuracy
+package commands
 
 import (
 	"fmt"
