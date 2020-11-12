@@ -5,8 +5,9 @@ import (
 	"os"
 
 	surveyCore "github.com/AlecAivazis/survey/v2/core"
-	"github.com/agusnavce/posifi-cli/commands"
+	"github.com/agusnavce/posifi-cli/commands/root"
 	"github.com/agusnavce/posifi-cli/pkg"
+	"github.com/cli/cli/pkg/cmd/root"
 	"github.com/mgutz/ansi"
 )
 
@@ -32,7 +33,7 @@ func main() {
 		}
 	}
 
-	rootCmd := commands.NewCmdRoot(cmdFactory)
+	rootCmd := root.NewCmdRoot(cmdFactory)
 	stderr := cmdFactory.IOStreams.ErrOut
 	cs := cmdFactory.IOStreams.ColorScheme()
 

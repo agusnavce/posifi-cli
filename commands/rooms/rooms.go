@@ -1,4 +1,4 @@
-package commands
+package rooms
 
 import (
 	"fmt"
@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// NewCmdScan creates the version command
-func NewCmdScan(f *pkg.Factory) *cobra.Command {
+// NewCmdRooms creates the version command
+func NewCmdRooms(f *pkg.Factory) *cobra.Command {
 	cmd := &cobra.Command{
-		Use: "scan",
+		Use: "rooms",
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Println("test")
 		},

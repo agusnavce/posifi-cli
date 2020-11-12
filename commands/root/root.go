@@ -1,7 +1,10 @@
-package commands
+package root
 
 import (
 	"github.com/MakeNowJust/heredoc"
+	"github.com/agusnavce/posifi-cli/commands/filters"
+	"github.com/agusnavce/posifi-cli/commands/rooms"
+	"github.com/agusnavce/posifi-cli/commands/train"
 	"github.com/agusnavce/posifi-cli/pkg"
 	"github.com/spf13/cobra"
 )
@@ -38,13 +41,9 @@ func NewCmdRoot(f *pkg.Factory) *cobra.Command {
 	// cmd.Version = formattedVersion
 	// cmd.Flags().Bool("version", false, "Show gh version")
 
-	cmd.AddCommand(NewCmdAccuracy(f))
-	cmd.AddCommand(NewCmdFilter(f))
-	cmd.AddCommand(NewCmdList(f))
-	cmd.AddCommand(NewCmdScan(f))
-	cmd.AddCommand(NewCmdTrain(f))
-	cmd.AddCommand(NewCmdInsert(f))
-	cmd.AddCommand(NewCmdDelete(f))
+	cmd.AddCommand(train.NewCmdTrain(f))
+	cmd.AddCommand(rooms.NewCmdRooms(f))
+	cmd.AddCommand(filters.NewCmdFilters(f))
 
 	// Help topics
 	// cmd.AddCommand(NewHelpTopic("environment"))

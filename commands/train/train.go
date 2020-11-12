@@ -1,4 +1,4 @@
-package commands
+package train
 
 import (
 	"fmt"
@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// NewCmdInsert creates the version command
-func NewCmdInsert(f *pkg.Factory) *cobra.Command {
+// NewCmdTrain creates the version command
+func NewCmdTrain(f *pkg.Factory) *cobra.Command {
 	cmd := &cobra.Command{
-		Use: "insert",
+		Use: "train",
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Println("test")
 		},
