@@ -31,9 +31,15 @@ func NewCmdRoot(f *pkg.Factory) *cobra.Command {
 	cmd.SetOut(f.IOStreams.Out)
 	cmd.SetErr(f.IOStreams.ErrOut)
 
+	cs := f.IOStreams.ColorScheme()
+
+	helpHelper := func(command *cobra.Command, args []string) {
+		rootHelpFunc(cs, command, args)
+	}
+
 	cmd.PersistentFlags().Bool("help", false, "Show help for command")
-	cmd.SetHelpFunc(rootHelpFunc)
-	// cmd.SetUsageFunc(rootUsageFunc)
+	cmd.SetHelpFunc(helpHelper)
+	cmd.SetUsageFunc(rootUsageFunc)
 	// cmd.SetFlagErrorFunc(rootFlagErrrorFunc)
 
 	// formattedVersion := versionCmd.Format(version, buildDate)

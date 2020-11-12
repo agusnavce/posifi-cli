@@ -2,12 +2,10 @@ package main
 
 import (
 	"fmt"
-	"os"
 
 	surveyCore "github.com/AlecAivazis/survey/v2/core"
 	"github.com/agusnavce/posifi-cli/commands/root"
 	"github.com/agusnavce/posifi-cli/pkg"
-	"github.com/cli/cli/pkg/cmd/root"
 	"github.com/mgutz/ansi"
 )
 
@@ -38,13 +36,12 @@ func main() {
 	cs := cmdFactory.IOStreams.ColorScheme()
 
 	cfg, hasConfig, err := cmdFactory.Config()
-	fmt.Println(err, cfg)
+	fmt.Println(err, hasConfig, cfg, stderr, cs)
 	if !hasConfig {
 		fmt.Fprintln(stderr, cs.Bold("Welcome to Posifi CLI!"))
 		fmt.Fprintln(stderr)
 		fmt.Fprintln(stderr, "To authenticate, please run `gh auth login`.")
 		fmt.Fprintln(stderr, "You can also set the GITHUB_TOKEN environment variable, if preferred.")
-		os.Exit(4)
 	}
 
 	rootCmd.Execute()
